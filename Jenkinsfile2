@@ -21,7 +21,7 @@ pipeline {
                         sh"newman run collections/collection_1_jenkins.json -e environments/${params.CHOICE}.json"
                     }
                 }
-                build job:"postman2_3"
+                build job:"postman2_3", wait: false
             }
         }
     }

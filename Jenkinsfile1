@@ -9,7 +9,7 @@ pipeline {
         stage('Run Tests') {
             steps{
                 sh"newman run collections/collection.json"
-                build job:"postman2_2"
+                build job:"postman2_2", wait: false
             }
         }
     }
