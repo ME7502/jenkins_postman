@@ -27,10 +27,8 @@ pipeline {
             steps {
                 sh "npm install -g newman newman-reporter-allure allure-commandline"
                 script {
-
                     if (params.firstCollection) {
-                        sh "newman run collections/collection.json -n 2 -r cli,allure --reporter-allure-export allure-results && allure generate allure-results -o allure-report --clean"
-                    } else {
+                        sh "newman run collections/collection.json -n 2 -r cli,allure --reporter-allure-export allure-results && allure generate allure-results -o allure-report --clean"                    } else {
 
                         switch(params.envChoice) {
 
