@@ -8,7 +8,8 @@ pipeline {
     stages {
         stage('Run Tests') {
             steps{
-                sh "newman run collections/collection_2_jenkins.json -e environments/env3_jenkins.json" 
+                sh "newman run collections/collection_2_jenkins.json -e environments/env3_jenkins.json"
+                echo"------------Job 3 finished--------------"
             }
         }
     }

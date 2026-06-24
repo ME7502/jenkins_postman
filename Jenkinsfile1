@@ -9,7 +9,10 @@ pipeline {
         stage('Run Tests') {
             steps{
                 sh"newman run collections/collection.json"
-                build job:"postman2_2", wait: false
+                build job:"postman2_2", wait: false, 
+                parameters:[booleanParam(name:'TOGGLE', value:Math.random()>0.5?true:false),
+                string(name:'CHOICE', value:Math.random()>0.5?"env1_jenkins":"env2_jenkins")]
+                echo"------------Job 2 launched, Job 1 finished--------------"
             }
         }
     }
