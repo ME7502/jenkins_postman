@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker { 
             // image 'postman/newman:latest'
-            image 'eclipse-temurin:17-node'
+            image 'node:20'
             args '-u=root --entrypoint='
         }  
     }
@@ -25,6 +25,7 @@ pipeline {
 
         stage('lancer le test') {
             steps {
+                sh "apt-get update && apt-get install -y openjdk-17-jre"
                 sh "npm install -g newman newman-reporter-allure allure-commandline"
                 script {
                     if (params.firstCollection) {
