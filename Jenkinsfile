@@ -45,4 +45,11 @@ pipeline {
             }
         }
     }
+    post {
+    always {
+        allure([
+            results: [[path: 'allure-results']]
+        ])
+    }
+}
 }
