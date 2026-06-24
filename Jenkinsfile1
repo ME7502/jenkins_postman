@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Run Tests') {
             steps{
-                sh"newman run collections/collection_1_jenkins.json"
+                sh"newman run collections/collection.json"
                 build job:"postman2_2"
             }
         }
