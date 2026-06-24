@@ -3,12 +3,12 @@ pipeline {
         docker { 
             image 'postman/newman:latest'
             args '-u=root --entrypoint='
-        }  
-        parameters{
+        } 
+    }
+    parameters{
             booleanParam(name: 'TOGGLE', defaultValue: false, description: 'Toggle this value to execute on both environments')
             choice(name: 'CHOICE', choices: ['env1_jenkins', 'env2_jenkins'], description: 'Pick an environment')
         }
-    }
     stages {
         stage('Run Tests') {
             steps{
