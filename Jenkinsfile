@@ -18,23 +18,23 @@ pipeline {
             steps {
                 script{
                     if(params.firstCollection){
-                        newman run collections/collection.json;
+                        sh "newman run collections/collection.json";
                     }
                     else{
                         Switch(params.envChoice){
                             case(env1_jenkins):
-                                newman run collections/collection_1_jenkins.json -e environments/env1_jenkins;
+                                sh "newman run collections/collection_1_jenkins.json -e environments/env1_jenkins";
                                 break;
                             case(env2_jenkins):
-                                newman run collections/collection_1_jenkins.json -e environments/env2_jenkins;
+                                sh "newman run collections/collection_1_jenkins.json -e environments/env2_jenkins";
                                 break;
                             case(env3_jenkins):
-                                newman run collections/collection_2_jenkins.json -e environments/env3_jenkins;
+                                sh "newman run collections/collection_2_jenkins.json -e environments/env3_jenkins";
                                 break;
                             default:
-                                newman run collections/collection.json;
-                                newman run collections/collection_1_jenkins.json -e environments/env1_jenkins;
-                                newman run collections/collection_2_jenkins.json -e environments/env3_jenkins;
+                                sh "newman run collections/collection.json";
+                                sh "newman run collections/collection_1_jenkins.json -e environments/env1_jenkins";
+                                sh "newman run collections/collection_2_jenkins.json -e environments/env3_jenkins";
                                 break;
                         }
                     }
