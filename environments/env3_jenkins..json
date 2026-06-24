@@ -1,0 +1,16 @@
+{
+	"id": "d41f6cfd-3ae8-42e0-8cc1-c5b2e1ef3802",
+	"name": "env3_jenkins",
+	"values": [
+		{
+			"key": "url",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"color": null,
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2026-06-24T08:41:16.398Z",
+	"_postman_exported_using": "Postman/12.15.7"
+}

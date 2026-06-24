@@ -1,0 +1,19 @@
+{
+  "info": {
+    "_postman_id": "b4a5cbbf-d45a-4368-9bab-2560e20d0ffb",
+    "name": "collection_2_jenkins",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "33136539",
+    "_collection_link": "https://go.postman.co/collection/33136539-b4a5cbbf-d45a-4368-9bab-2560e20d0ffb?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "get brands",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    }
+  ]
+}

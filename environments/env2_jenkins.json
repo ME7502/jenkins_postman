@@ -1,0 +1,16 @@
+{
+	"id": "756d1c11-b2c8-4404-be75-75596e7bc793",
+	"name": "env2_jenkins",
+	"values": [
+		{
+			"key": "url",
+			"value": "https://api.practicesoftwaretesting.com",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"color": null,
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2026-06-24T08:39:55.121Z",
+	"_postman_exported_using": "Postman/12.15.7"
+}
