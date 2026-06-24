@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker { 
             // image 'postman/newman:latest'
-            image 'node:latest'
+            image 'eclipse-temurin:17-node'
             args '-u=root --entrypoint='
         }  
     }
