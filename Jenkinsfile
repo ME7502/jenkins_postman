@@ -18,23 +18,10 @@ pipeline {
         )
     }
     stages {
-        stage('Clean Workspace') {
-            steps {
-                cleanWs()
-            }
-        }
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
-        stage('Install Dependencies') {
-            steps {
-                sh "npm install -g newman newman-reporter-htmlextra"
-            }
-        }
+        
         stage('Run Tests') {
             steps {
+                sh "npm install -g newman newman-reporter-htmlextra"
                 script {
                     if (params.firstCollection) {
                         sh """
