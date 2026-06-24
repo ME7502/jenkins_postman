@@ -2,7 +2,8 @@ pipeline {
     agent {
         docker
         { 
-            image 'postman/newman:latest'
+            // image 'postman/newman:latest'
+            image 'node:latest'
             args '-u=root --entrypoint='
         }  
     }
@@ -16,9 +17,11 @@ pipeline {
     stages {
         stage('lancer le test') {
             steps {
+                sh "npm install --save-dev newman-reporter-allure"
+                sh "npm install -g newman newman-reporter-allure"
                 script{
                     if(params.firstCollection){
-                        sh "newman run collections/collection.json -n 2";
+                        sh "newman run collections/collection.json -n 2 -r cli,allure --reporter-allure-export allure-results";
                     }
                     else{
                         switch(params.envChoice){
