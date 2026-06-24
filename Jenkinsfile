@@ -25,7 +25,7 @@ pipeline {
 
         stage('lancer le test') {
             steps {
-                sh "npm install -g newman newman-reporter-allure"
+                sh "npm install -g newman newman-reporter-allure allure-commandline"
                 script {
 
                     if (params.firstCollection) {
