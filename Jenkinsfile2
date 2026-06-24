@@ -1,0 +1,28 @@
+pipeline {
+    agent {
+        docker { 
+            image 'postman/newman:latest'
+            args '-u=root --entrypoint='
+        }  
+        parameters{
+            booleanParam(name: 'TOGGLE', defaultValue: false, description: 'Toggle this value to execute on both environments')
+            choice(name: 'CHOICE', choices: ['env1_jenkins', 'env2_jenkins'], description: 'Pick an environment')
+        }
+    }
+    stages {
+        stage('Run Tests') {
+            steps{
+                script{
+                    if(params.TOGGLE){
+                        sh"newman run collections/collection_1_jenkins.json -e environments/env1_jenkins.json"
+                        sh"newman run collections/collection_1_jenkins.json -e environments/env2_jenkins.json"
+                    }
+                    else{
+                        sh"newman run collections/collection_1_jenkins.json -e environments/${params.CHOICE}.json"
+                    }
+                }
+                build job:"postman2_3"
+            }
+        }
+    }
+}
