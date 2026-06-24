@@ -18,7 +18,7 @@ pipeline {
             steps {
                 script{
                     if(params.firstCollection){
-                        sh "newman run collections/collection.json";
+                        sh "newman run collections/collection.json -n 2";
                     }
                     else{
                         switch(params.envChoice){
